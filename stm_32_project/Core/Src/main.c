@@ -6,13 +6,10 @@
 #include "main.h"
 
 void SystemClock_Config(void);
-static void MX_GPIO_Init(void);
 
 int main(void)
 {
 	SystemClock_Config();
-
-	MX_GPIO_Init();
 
 	matrixInit();
 	batteryCheckInit();
@@ -57,15 +54,6 @@ void SystemClock_Config(void){
 	SysTick->CTRL |= SysTick_CTRL_TICKINT_Msk;
 	NVIC_SetPriority(SysTick_IRQn, 3);
 	LL_SetSystemCoreClock(48000000);
-}
-
-
-static void MX_GPIO_Init(void)
-{
-
-	LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_GPIOF);
-	LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_GPIOA);
-
 }
 
 

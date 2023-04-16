@@ -37,6 +37,7 @@
 *.hex
 
 # Debug files
+stm_32_project/Debug/
 *.dSYM/
 *.su
 *.idb
